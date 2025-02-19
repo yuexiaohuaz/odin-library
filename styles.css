@@ -24,7 +24,8 @@ label {
 }
 dialog {
     width: 400px;
-
+    padding: 10px;
+    margin-left: 35%;
 }
 
 .main-content {
