@@ -65,7 +65,6 @@ function displayBook() {
 
         }
         book.appendChild(info);
-        //switch statement
        }
        let delBtn = document.createElement("button");
        delBtn.textContent = "Delete";
@@ -78,8 +77,7 @@ function displayBook() {
        mainContent.appendChild(book);
 
 
-//create a div inside of the main-content class with the same properties as other books, just with adjusted info
 
 }
-addBookToLibrary("owen is amazing", "bye", "300", "read");
+addBookToLibrary("bob is amazing", "bye", "300", "read");
 displayBook();
