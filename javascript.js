@@ -14,11 +14,11 @@ confirmBtn.addEventListener("click", (e) => {
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
     let read = document.querySelector("#read").value;
-    //let title = 
     addBookToLibrary(title, author, pages, read);
     displayBook();
     dialog.close();
-})
+});
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -32,6 +32,7 @@ function addBookToLibrary(title, author, pages, read) {
 function displayBook() {
        let book = document.createElement("div"); 
        book.classList.add("book");
+       let toggleBtn = document.createElement("button");
        for (let j = 0; j < 4; j++) {
         let info = document.createElement("p");
         switch (j) {
@@ -46,16 +47,31 @@ function displayBook() {
                 info.textContent = myLibrary[myLibrary.length - 1].pages;
                 break;
             case 3:
-                info.textContent = myLibrary[myLibrary.length - 1].read;       
+                info.classList.add("read");
+                info.textContent = myLibrary[myLibrary.length - 1].read;   
+                
+                toggleBtn.textContent = "Toggle Read";
+                toggleBtn.classList.add("toggle-read");
+                toggleBtn.addEventListener("click", (e)=> {
+                    if (myLibrary[myLibrary.length - 1].read == "read") {
+                        info.textContent="unread";
+                        myLibrary[myLibrary.length - 1].read = "unread";
+                    } 
+                    else if (myLibrary[myLibrary.length - 1].read == "unread") {
+                        info.textContent="read";
+                        myLibrary[myLibrary.length - 1].read = "read";
+                    }
+            });
+
         }
         book.appendChild(info);
         //switch statement
        }
-       let toggleBtn = document.createElement("button");
-       toggleBtn.textContent = "Toggle Read";
-       toggleBtn.classList.add("toggle-read");
        let delBtn = document.createElement("button");
        delBtn.textContent = "Delete";
+       delBtn.addEventListener("click", (e) => {
+        mainContent.removeChild(book);
+    });
        delBtn.classList.add("delete");
        book.appendChild(toggleBtn);
        book.appendChild(delBtn);
