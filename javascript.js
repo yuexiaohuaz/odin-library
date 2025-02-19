@@ -1,9 +1,10 @@
 let myLibrary = [];
 let mainContent = document.querySelector(".main-content")
 const addBookBtn = document.querySelector(".add-book");
+const dialog = document.querySelector("dialog");
 
-addBookBtn.addEventListener("click", () => {
-
+addBookBtn.addEventListener("click", (e) => {
+    dialog.showModal();
 });
 function Book(title, author, pages, read) {
     this.title = title;
@@ -38,14 +39,19 @@ function displayBooks(myLibrary) {
         book.appendChild(info);
         //switch statement
        }
-       let button = document.createElement("button");
-       button.textContent = "Toggle Read";
-       book.appendChild(button);
+       let toggleBtn = document.createElement("button");
+       toggleBtn.textContent = "Toggle Read";
+       toggleBtn.classList.add("toggle-read");
+       let delBtn = document.createElement("button");
+       delBtn.textContent = "Delete";
+       delBtn.classList.add("delete");
+       book.appendChild(toggleBtn);
+       book.appendChild(delBtn);
        mainContent.appendChild(book);
 
 
 //create a div inside of the main-content class with the same properties as other books, just with adjusted info
     }
 }
-addBookToLibrary("hi", "bye", "300", "read");
+addBookToLibrary("owen is amazing", "bye", "300", "read");
 displayBooks(myLibrary);

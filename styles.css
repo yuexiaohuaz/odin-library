@@ -16,9 +16,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.header button {
+.add-book {
     font-size: 10rem;
 }
+label {
+    font-size: 20px;
+}
+dialog {
+    width: 400px;
+
+}
+
 .main-content {
     grid-row: 2 / 7;
     display: flex;
@@ -29,7 +37,7 @@
 .book {
     border: 2px solid black;
     width: 18vw;
-    height: 25vh;
+    height: 40vh;
 }
 .title {
     font-weight: 700;
