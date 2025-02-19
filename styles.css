@@ -43,7 +43,6 @@
     padding: 1rem 0.8rem;
     border-radius: 16px;
     margin-top: 2vh;
-    content: "Toggle Read";
 }
 .book button:hover {
     background-color: lightgray;
